@@ -18,7 +18,8 @@ const Popup = ({closePopup}) => {
                 <label htmlFor="salary-input">Ваша зарплата в месяц</label>
                 <input
                     id="salary-input"
-                    type="text"
+                    className="popup__salary-input"
+                    type="number"
                     value={salary}
                     onChange={e => setSalary(e.target.value)}
                     placeholder="Введите данные"/>
@@ -34,19 +35,44 @@ const Popup = ({closePopup}) => {
                         <span>в 3-ий год</span>
                     </label>
                 </div>
+                <div className="popup__checkboxes-box">
+                    <input type="checkbox" id="checkbox"/>
+                    <label htmlFor="checkbox">
+                        <span>78 000 рублей</span>
+                        <span>в 3-ий год</span>
+                    </label>
+                </div>
+                <div className="popup__checkboxes-box">
+                    <input type="checkbox" id="checkbox"/>
+                    <label htmlFor="checkbox">
+                        <span>78 000 рублей</span>
+                        <span>в 3-ий год</span>
+                    </label>
+                </div>
+                <div className="popup__checkboxes-box">
+                    <input type="checkbox" id="checkbox"/>
+                    <label htmlFor="checkbox">
+                        <span>78 000 рублей</span>
+                        <span>в 3-ий год</span>
+                    </label>
+                </div>
             </div>}
             <div className="popup__tags">
                 <span className="popup__tags-name">Что уменьшаем?</span>
-                {tags.map(item => (
-                    <span
-                        onClick={() => setActiveTag(item)}
-                        key={item}
-                        className={`popup__tags-tag ${activeTag === item && "active-tag"}`}>
+                <div>
+                    {tags.map(item => (
+                        <span
+                            onClick={() => setActiveTag(item)}
+                            key={item}
+                            className={`popup__tags-tag ${activeTag === item && "active-tag"}`}>
                     {item}
                 </span>
-                ))}
+                    ))}
+                </div>
             </div>
-            <button className="popup__button-add">Добавить</button>
+            <div className="block-button-add">
+                <button className="popup__button-add">Добавить</button>
+            </div>
         </div>
     );
 };
