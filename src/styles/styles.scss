@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__popup-active {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &__popup-disabled {
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+    box-shadow: 0 -0.11px 16.9495px rgba(183, 187, 225, 0.33);
+  }
+
+  &__button {
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 16px 32px;
+    cursor: pointer;
+    background: none;
+    color: white;
+
+    // styles for text in button
+    font-size: 16px;
+
+    &:hover {
+      background-color: white;
+      color: black;
+
+    }
+  }
+}
+
+// popup
+
+.popup {
+  width: 552px;
+  height: auto;
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  padding: 32px;
+
+  position: relative;
+
+  &__close {
+    position: absolute;
+    right: 27px;
+    top: 15px;
+    font-size: 40px;
+    color: #EA0029;
+    cursor: pointer;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  p {
+    margin-top: 16px;
+
+    color: #808080;
+    font-size: 14px;
+  }
+
+  &__salary {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input {
+      padding: 8px 10px;
+      border: 1px solid #DFE3E6;
+      border-radius: 3px;
+      outline: none;
+
+      &:hover {
+        border: 1px solid #000000;
+      }
+
+      &:focus {
+        border: 1px solid #DFE3E6;
+      }
+    }
+
+    span {
+      cursor: pointer;
+      margin: 8px 0 20px 0;
+
+      font-size: 14px;
+      color: #EA0029;
+
+      &:hover {
+        color: #F53A31;
+      }
+
+      &:active {
+        color: #EA0029
+      }
+    }
+  }
+
+  &__checkboxes {
+    margin-bottom: 40px;
+
+    &-name {
+      font-size: 14px;
+    }
+
+    &-box {
+      display: flex;
+      align-items: center;
+
+      padding: 16px 0;
+      border-bottom: 1px solid #DFE3E6;
+
+      font-size: 14px;
+
+      position: relative;
+
+      input[type="checkbox"] {display: none}
+
+      label {
+        cursor: pointer;
+      }
+      label::before {
+        cursor: pointer;
+        content: '';
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+        margin-right: 10px;
+        border-radius: 6px;
+        border: 1px solid #DFE3E6;
+      }
+      input[type="checkbox"]:hover + label::before {
+        border: 1px solid #000000;
+      }
+
+      input[type="checkbox"]:checked + label::before {
+        content: '';
+        background-size: 80%;
+        background-color: #FF5E56;
+        border: 1px solid #FF5E56;
+        background-image: url("https://i.imgur.com/cn35apa.png");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      label span:nth-child(2) {
+        opacity: .6;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-name {
+      margin-right: 24px;
+    }
+
+    &-tag {
+      padding: 6px 12px;
+      background: #EEF0F2;
+      border-radius: 50px;
+      margin: 0 8px;
+      cursor: pointer;
+
+      font-size: 14px;
+    }
+
+    .active-tag {
+      background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+
+      color: white;
+    }
+  }
+
+
+  &__button-add {
+    margin-top: 40px;
+    width: 100%;
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+    box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
+    border-radius: 6px;
+    border: none;
+    padding: 16px 0;
+    cursor: pointer;
+
+    font-size: 16px;
+    color: white;
+
+    &:hover {
+      background: #EA0029;
+    }
+  }
+}
