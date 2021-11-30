@@ -8,6 +8,11 @@ const Popup = ({closePopup}) => {
     const [salary, setSalary] = useState("")
 
     const [isCheckboxes, setIsCheckboxes] = useState(false)
+    const [checkboxes, setCheckboxes] = useState([])
+
+    const calculation = () => {
+        setCheckboxes([Math.floor((salary * 12) * 0.13)])
+    }
     return (
         <div className="popup">
             <span className="popup__close" onClick={closePopup}>&times;</span>
@@ -23,39 +28,23 @@ const Popup = ({closePopup}) => {
                     value={salary}
                     onChange={e => setSalary(e.target.value)}
                     placeholder="Введите данные"/>
-                <span onClick={() => setIsCheckboxes(true)}>Рассчитать</span>
+                <span onClick={() => {
+                    calculation()
+                    setIsCheckboxes(true)
+                }}>Рассчитать</span>
             </div>
             {isCheckboxes && salary.length !== 0 &&
             <div className="popup__checkboxes">
                 <span className="popup__checkboxes-name">Итого можете внести в качестве досрочных:</span>
-                <div className="popup__checkboxes-box">
-                    <input type="checkbox" id="checkbox"/>
-                    <label htmlFor="checkbox">
-                        <span>78 000 рублей</span>
-                        <span>в 3-ий год</span>
-                    </label>
-                </div>
-                <div className="popup__checkboxes-box">
-                    <input type="checkbox" id="checkbox"/>
-                    <label htmlFor="checkbox">
-                        <span>78 000 рублей</span>
-                        <span>в 3-ий год</span>
-                    </label>
-                </div>
-                <div className="popup__checkboxes-box">
-                    <input type="checkbox" id="checkbox"/>
-                    <label htmlFor="checkbox">
-                        <span>78 000 рублей</span>
-                        <span>в 3-ий год</span>
-                    </label>
-                </div>
-                <div className="popup__checkboxes-box">
-                    <input type="checkbox" id="checkbox"/>
-                    <label htmlFor="checkbox">
-                        <span>78 000 рублей</span>
-                        <span>в 3-ий год</span>
-                    </label>
-                </div>
+                {checkboxes.map((item, index) => (
+                    <div className="popup__checkboxes-box" key={item}>
+                        <input type="checkbox" id="checkbox"/>
+                        <label htmlFor="checkbox">
+                            <span>{item} рублей</span>
+                            <span>в {index + 1} год</span>
+                        </label>
+                    </div>
+                ))}
             </div>}
             <div className="popup__tags">
                 <span className="popup__tags-name">Что уменьшаем?</span>
